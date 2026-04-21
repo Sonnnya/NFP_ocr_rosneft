@@ -1,0 +1,18 @@
+[{"number": str, 
+"date": "01.01.0001",
+"company": str,
+"accountable_person": str,
+"branch": str,
+"director": str,
+"chief_accountant": str,
+"currency": str,
+"comment": str, 
+"expenses":
+[{"input_doc_name": str,
+"input_doc_number": str,
+"input_doc_date": "01.01.0001",
+"sum_main": float,
+"sum_currency": float,
+"account": str,
+"currency": str}]
+}]
