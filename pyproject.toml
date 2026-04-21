@@ -6,10 +6,12 @@ authors = [
     {name = "Софья Кравченко",email = "svkravchenko@1cbit.ru"}
 ]
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.13,<4.0"
 dependencies = [
     "pydantic (>=2.13.3,<3.0.0)",
-    "fastapi (>=0.136.0,<0.137.0)"
+    "fastapi (>=0.136.0,<0.137.0)",
+    "transformers (==4.57.6)",
+    "surya-ocr (>=0.17.1,<0.18.0)"
 ]
 
 
