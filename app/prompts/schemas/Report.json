@@ -1,0 +1,111 @@
+{
+  "$defs": {
+    "Expense": {
+      "properties": {
+        "input_doc_name": {
+          "title": "Input Doc Name",
+          "type": "string"
+        },
+        "input_doc_number": {
+          "title": "Input Doc Number",
+          "type": "string"
+        },
+        "input_doc_date": {
+          "title": "Input Doc Date",
+          "type": "string"
+        },
+        "sum_main": {
+          "title": "Sum Main",
+          "type": "number"
+        },
+        "sum_currency": {
+          "title": "Sum Currency",
+          "type": "number"
+        },
+        "account": {
+          "title": "Account",
+          "type": "string"
+        },
+        "currency": {
+          "title": "Currency",
+          "type": "string"
+        }
+      },
+      "required": [
+        "input_doc_name",
+        "input_doc_number",
+        "input_doc_date",
+        "sum_main",
+        "sum_currency",
+        "account",
+        "currency"
+      ],
+      "title": "Expense",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "number": {
+      "title": "Number",
+      "type": "string"
+    },
+    "date": {
+      "title": "Date",
+      "type": "string"
+    },
+    "company": {
+      "title": "Company",
+      "type": "string"
+    },
+    "accountable_person": {
+      "title": "Accountable Person",
+      "type": "string"
+    },
+    "branch": {
+      "title": "Branch",
+      "type": "string"
+    },
+    "director": {
+      "title": "Director",
+      "type": "string"
+    },
+    "chief_accountant": {
+      "title": "Chief Accountant",
+      "type": "string"
+    },
+    "accountant": {
+      "title": "Accountant",
+      "type": "string"
+    },
+    "currency": {
+      "title": "Currency",
+      "type": "string"
+    },
+    "comment": {
+      "title": "Comment",
+      "type": "string"
+    },
+    "expenses": {
+      "items": {
+        "$ref": "#/$defs/Expense"
+      },
+      "title": "Expenses",
+      "type": "array"
+    }
+  },
+  "required": [
+    "number",
+    "date",
+    "company",
+    "accountable_person",
+    "branch",
+    "director",
+    "chief_accountant",
+    "accountant",
+    "currency",
+    "comment",
+    "expenses"
+  ],
+  "title": "Report",
+  "type": "object"
+}
