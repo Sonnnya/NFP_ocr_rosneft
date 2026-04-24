@@ -1,10 +1,18 @@
-from deepagents import create_deep_agent
+from langchain.agents import create_agent
 from langchain_huggingface import ChatHuggingFace, HuggingFaceEndpoint
 
+from .settings import settings, setup_env
+
+setup_env(settings)
+
 llm = HuggingFaceEndpoint(
-    repo_id="microsoft/Phi-3-mini-4k-instruct",
+    repo_id="Qwen/Qwen3-8B",
+    provider="auto",
+    huggingfacehub_api_token=settings.HUGGINGFACEHUB_API_TOKEN,
 )
 model = ChatHuggingFace(llm=llm)
+
+print(model.invoke("What is Deep Learning?"))
 
 
 def get_weather(city: str) -> str:
@@ -12,7 +20,7 @@ def get_weather(city: str) -> str:
     return f"It's always sunny in {city}!"
 
 
-agent = create_deep_agent(
+agent = create_agent(
     model=model,
     tools=[get_weather],
     system_prompt="You are a helpful assistant",
