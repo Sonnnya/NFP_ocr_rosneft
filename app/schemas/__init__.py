@@ -1,1 +1,1 @@
-from . import *
+from .documents import *

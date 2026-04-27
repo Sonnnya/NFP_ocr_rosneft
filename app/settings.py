@@ -9,9 +9,12 @@ class Settings(BaseSettings):
     MODEL: str = "microsoft/Phi-3-mini-4k-instruct"
     PORT: int = 8000
     LOG_LEVEL: str = "debug"
+    RELOAD: bool = True
+    BITAI_TOKEN: str = "sk-ключ"
 
     class Config:
         env_file = ".env"
+        extra = "ignore"
 
 
 def setup_env(settings: Settings):
