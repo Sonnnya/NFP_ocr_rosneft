@@ -26,18 +26,11 @@ class Document(BaseModel):
 
     kind: DocumentKind
 
-    accountable_person: str | None
-    signed_by_director: bool | None
+    # accountable_person: str | None
+    # signed_by_director: bool | None
 
 
-class ExpenseDocument(BaseModel):
-    number: str
-    name: str
-    date: str
-
-
-class Expense(BaseModel):
-    document: ExpenseDocument
+class Expense(Document):
     sum_main: float
     sum_currency: float
     account: str

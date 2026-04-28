@@ -20,6 +20,7 @@ def get_weather(city: str) -> str:
 
 agent = create_agent(
     model=llm,
+    tools=[get_weather],
     system_prompt="You are a helpful assistant",
 )
 

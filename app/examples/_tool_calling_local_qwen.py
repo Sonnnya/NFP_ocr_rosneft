@@ -6,7 +6,7 @@ from .settings import settings, setup_env
 
 setup_env(settings)
 
-model_name = "Qwen/Qwen3-0.6B"
+model_name = "Qwen/Qwen3-0.6B"  # too small for tools
 
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForCausalLM.from_pretrained(
