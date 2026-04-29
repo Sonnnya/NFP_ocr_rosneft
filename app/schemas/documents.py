@@ -38,12 +38,12 @@ class Expense(Document):
 
 
 class Report(Document):
-    company_name: str
-    accountable_person: str
-    branch: str
-    director: str
-    chief_accountant: str
-    accountant: str
-    currency: CurrencyType
-    comment: str
-    expenses: List[Expense]
+    company_name: str | None = None
+    accountable_person: str | None = None
+    branch: str | None = None
+    director: str | None = None
+    chief_accountant: str | None = None
+    accountant: str | None = None
+    currency: CurrencyType = CurrencyType.RUB
+    comment: str | None = None
+    expenses: List[Expense] = []

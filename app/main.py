@@ -1,12 +1,12 @@
 import uvicorn
 from fastapi import FastAPI
 
-from app.api import documents_router
+from app.api import packages_router
 from app.settings import settings
 
 app = FastAPI()
 
-app.include_router(documents_router)
+app.include_router(packages_router)
 
 
 @app.get("/health")
