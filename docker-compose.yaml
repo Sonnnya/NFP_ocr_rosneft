@@ -6,7 +6,7 @@ services:
       - "8061:8000"
     volumes:
       - ./app:/app/app
-      - surya_models:/root/.cache/huggingface
+      - surya_models:/root/.cache/datalab
     env_file:
       - .env
 
