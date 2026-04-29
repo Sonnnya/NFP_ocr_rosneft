@@ -1,0 +1,14 @@
+services:
+  api:
+    build: .
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    ports:
+      - "8061:8000"
+    volumes:
+      - ./app:/app/app
+      - surya_models:/root/.cache/huggingface
+    env_file:
+      - .env
+
+volumes:
+  surya_models:

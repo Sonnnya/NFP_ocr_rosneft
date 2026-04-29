@@ -1,0 +1,14 @@
+services:
+  api:
+    build: .
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --workers 2
+    ports:
+      - "8061:8000"
+    volumes:
+      - surya_models:/root/.cache/huggingface   # weights persist across deploys
+    env_file:
+      - .env
+    restart: unless-stopped
+
+volumes:
+  surya_models:

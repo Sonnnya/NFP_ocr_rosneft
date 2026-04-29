@@ -1,3 +1,4 @@
+import logging
 from pathlib import Path
 
 from PIL import Image
@@ -6,13 +7,17 @@ from surya.foundation import FoundationPredictor
 from surya.recognition import RecognitionPredictor
 from surya.recognition.schema import OCRResult
 
+from app.settings import log_blob
+
+logger = logging.getLogger(__name__)
+
 foundation_predictor = FoundationPredictor()
 recognition_predictor = RecognitionPredictor(foundation_predictor)
 detection_predictor = DetectionPredictor()
 
 
 def ocr_surya(img_objs: list[Image.Image]) -> list[OCRResult]:
-    print(img_objs)
+    logger.debug(f"Running OCR on {len(img_objs)} images...")
     # NOTE: 1 за раз
     predictions = recognition_predictor(
         images=img_objs, det_predictor=detection_predictor
@@ -34,6 +39,21 @@ def parse_result(res: OCRResult) -> str:
 
 def parse_results(ress: list[OCRResult]) -> list[str]:
     return [parse_result(res) for res in ress]
+
+
+def ocr_and_log(img_objs: list[Image.Image], filenames: list[str]) -> list[str]:
+    """
+    OCR a batch and log each result with its filename as the label.
+    Use this instead of calling ocr_surya + parse_result separately
+    when you want per-file logging.
+    """
+    results = ocr_surya(img_objs)
+    texts = []
+    for res, name in zip(results, filenames):
+        text = parse_result(res)
+        log_blob(logger, f"OCR result: {name}", text)
+        texts.append(text)
+    return texts
 
 
 if __name__ == "__main__":
