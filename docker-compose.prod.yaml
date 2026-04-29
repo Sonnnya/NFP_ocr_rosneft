@@ -5,10 +5,7 @@ services:
     ports:
       - "8061:8000"
     volumes:
-      - surya_models:/root/.cache/datalab   # weights persist across deploys
+      - ./surya_models:/root/.cache/datalab   # weights persist across deploys
     env_file:
       - .env
     restart: unless-stopped
-
-volumes:
-  surya_models:
