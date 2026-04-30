@@ -64,7 +64,7 @@ if __name__ == "__main__":
     # print(_res)
     # print(res)
 
-    dir = "./data/Образцы документов авансовый отчет"
+    dir = "./data/examples/сформировать АО"
     for img in Path(dir).rglob("*"):
         if img.suffix.lower() not in [".jpg", ".jpeg", ".png"]:
             continue

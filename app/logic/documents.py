@@ -76,7 +76,7 @@ def create_report_from_documents(
 
 
 if __name__ == "__main__":
-    _path = Path("./data/Образцы документов авансовый отчет/")
+    _path = Path("./data/examples/сформировать АО")
     REWRITE = False
 
     # --- Step 1: extract each OCR text into its own JSON ---
